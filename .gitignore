@@ -11,6 +11,10 @@ Makefile.local
 .coverage
 build/
 ltc_scrypt.so
-chef-repo/cookbooks/
+
+/.vagrant/
+/chef-repo/cookbooks/
+/chef-repo/nodes/*.json
+
 .bundle/
 config/deploy/*.rb

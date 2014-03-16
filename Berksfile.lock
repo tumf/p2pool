@@ -1,0 +1,24 @@
+{
+  "sources": {
+    "apt": {
+      "locked_version": "2.3.8"
+    },
+    "crypto-coin": {
+      "locked_version": "0.2.5",
+      "git": "https://github.com/tumf/chef-crypto-coin.git",
+      "ref": "3ade96e29284948370e4458d4785194c22a42af2"
+    },
+    "p2pool": {
+      "path": "./chef-repo/site-cookbooks/p2pool"
+    },
+    "daemontools": {
+      "locked_version": "1.2.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.4"
+    },
+    "ucspi-tcp": {
+      "locked_version": "1.1.0"
+    }
+  }
+}
