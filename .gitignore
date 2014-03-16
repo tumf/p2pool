@@ -11,3 +11,6 @@ Makefile.local
 .coverage
 build/
 ltc_scrypt.so
+chef-repo/cookbooks/
+.bundle/
+config/deploy/*.rb
