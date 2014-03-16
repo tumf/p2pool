@@ -148,7 +148,7 @@ end
 daemontools_service "p2pool" do
   directory "/p2pool/service/p2pool"
   template false
-  action [:enable,:start]
+  action [:enable]
 end
 
 
