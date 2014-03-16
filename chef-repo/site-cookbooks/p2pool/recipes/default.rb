@@ -26,7 +26,7 @@ user 'p2pool' do
 end
 
 
-%w(python-zope.interface python-twisted python-twisted-web).each do |name|
+%w(git python-zope.interface python-twisted python-twisted-web).each do |name|
   apt_package name do
     action :install
   end
@@ -46,6 +46,8 @@ execute "initctl start svscan" do
   retries 30
 end
 
+
+# bitcoind
 directory "/p2pool/service/bitcoind/log" do
   owner "root"
   group "root"
@@ -75,6 +77,52 @@ directory "/p2pool/service/bitcoind/log/main" do
   action :create
 end
 
+# p2pool app
+directory "/p2pool/service/p2pool/log" do
+  owner "root"
+  group "root"
+  mode 0755
+  recursive true
+  action :create
+end
+directory "/p2pool/service/p2pool/env" do
+  owner "root"
+  group "root"
+  mode 0755
+  action :create
+end
+
+file "/p2pool/service/p2pool/env/HOME" do
+  owner "root"
+  group "root"
+  mode 0644
+  content "/p2pool"
+end
+
+template "/p2pool/service/p2pool/run" do
+  source "p2pool-run.erb"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+template "/p2pool/service/p2pool/log/run" do
+  source "p2pool-log-run.erb"
+  mode 0755
+  owner "root"
+  group "root"
+end
+
+directory "/p2pool/service/p2pool/log/main" do
+  owner "p2pool"
+  group "p2pool"
+  mode 0755
+  action :create
+end
+
+
+
+# bitcoind
 directory "/p2pool/.bitcoin" do
   owner "p2pool"
   group "p2pool"
@@ -89,12 +137,19 @@ template "/p2pool/.bitcoin/bitcoin.conf" do
   group "p2pool"
 end
 
+
+# start daemontools services
 daemontools_service "p2pool-bitcoind" do
   directory "/p2pool/service/bitcoind"
   template false
   action [:enable,:start]
 end
 
+daemontools_service "p2pool" do
+  directory "/p2pool/service/p2pool"
+  template false
+  action [:enable,:start]
+end
 
 
 

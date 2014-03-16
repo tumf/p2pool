@@ -1,0 +1,3 @@
+#!/bin/sh
+exec 2>&1
+exec setuidgid p2pool envdir ./env python /p2pool/app/current/run_p2pool.py
