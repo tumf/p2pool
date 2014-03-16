@@ -9,7 +9,7 @@ bundle
 ### set up node
 
 ```
-knife prepear cook <node>
+knife prepare cook <node>
 ```
 
 Edit generated node file
