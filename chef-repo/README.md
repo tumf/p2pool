@@ -33,6 +33,20 @@ as follows:
 knife solo cook <node>
 ```
 
+### deploy
+
+configure to deploy node.
+
+> config/deploy/{node}.rb
+
+```
+role :app, %w{user@node}
+server '{node}', roles: %w{app}
+```
+
+    cap {node} deploy
+
+
 ## Vagrant
 
 ```
