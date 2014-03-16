@@ -5,7 +5,7 @@
     },
     "crypto-coin": {
       "locked_version": "0.2.5",
-      "git": "https://github.com/tumf/chef-crypto-coin.git",
+      "git": "https://github.com/andruby/chef-crypto-coin.git",
       "ref": "3ade96e29284948370e4458d4785194c22a42af2"
     },
     "p2pool": {
@@ -15,7 +15,7 @@
       "locked_version": "1.2.0"
     },
     "build-essential": {
-      "locked_version": "1.4.4"
+      "locked_version": "2.0.0"
     },
     "ucspi-tcp": {
       "locked_version": "1.1.0"
